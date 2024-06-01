@@ -31,11 +31,11 @@
 
 .navbar__center a,
 .navbar__center button {
-  display: flex; /* Cambiamos a flexbox para poder manipular el orden de los elementos */
-  align-items: center; /* Alineamos verticalmente el icono y el texto */
+  display: flex; 
+  align-items: center; 
   color: white;
   text-decoration: none;
-  padding: 0.6em 1.2em; 
+  padding: 0.6em 0.9em; 
   margin: 10px 0; 
   background: #1a1a1a;
   border-radius: 8px; 
@@ -46,7 +46,7 @@
 
 .navbar__center a i,
 .navbar__center button i {
-  margin-right: 5px; /* Espacio entre el icono y el texto */
+  margin-right: 8px; 
 }
 
 .navbar__center a:hover,
