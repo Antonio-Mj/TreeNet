@@ -1,7 +1,7 @@
 import React from 'react';
 import { FollowCard } from "./FollowCard";
 import Navbar from "./Navbar"; 
-import "./../index.css"
+import "./../index.css";
 
 export function Home({ user, setUser }) {
   const USERS = [
@@ -22,42 +22,33 @@ export function Home({ user, setUser }) {
     }
   ];
 
-  const handleLogout = () => {
-    setUser([]);
-  };
-
   return (
     <>
-        <Navbar /> {}
-        <div className="home-display">
-            <div className="home-row-left">
-                <section className="container-followingcard">
-                {USERS.map(({ user, userName, initialFollow }) => (
-                <FollowCard 
-                    user={user} 
-                    userName={userName} 
-                    initialFollow={initialFollow} 
-                    key={userName} 
-                />
-                ))}
-               </section>
-            </div>
-        <div>
-            <h1>Bienvenido!</h1>
-            <h2>{user}</h2>
-            <button onClick={handleLogout}>Cerrar sesion</button>
-        </div>
-        <section className="container-followingcard">
+      <Navbar />
+      <div className="home-display">
+        <div className="home-row-left">
+          <section className="container-followingcard">
             {USERS.map(({ user, userName, initialFollow }) => (
-            <FollowCard 
+              <FollowCard 
                 user={user} 
                 userName={userName} 
                 initialFollow={initialFollow} 
                 key={userName} 
-            />
+              />
             ))}
-        </section>
+          </section>
         </div>
+        <section className="container-followingcard">
+          {USERS.map(({ user, userName, initialFollow }) => (
+            <FollowCard 
+              user={user} 
+              userName={userName} 
+              initialFollow={initialFollow} 
+              key={userName} 
+            />
+          ))}
+        </section>
+      </div>
     </>
   );
 }
