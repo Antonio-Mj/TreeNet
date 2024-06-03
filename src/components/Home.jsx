@@ -2,6 +2,7 @@ import React from 'react';
 import { FollowCard } from "./FollowCard";
 import Navbar from "./Navbar"; 
 import "./../index.css";
+import { useNavigate } from "react-router-dom";
 
 export function Home({ user, setUser }) {
   const USERS = [
@@ -22,6 +23,13 @@ export function Home({ user, setUser }) {
     }
   ];
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUser(null);
+    navigate("/");
+  };
+
   return (
     <>
       <Navbar />
@@ -37,6 +45,11 @@ export function Home({ user, setUser }) {
               />
             ))}
           </section>
+        </div>
+        <div>
+          <h1>Bienvenido!</h1>
+          <h2>{user}</h2>
+          <button onClick={handleLogout}>Cerrar sesion</button>
         </div>
         <section className="container-followingcard">
           {USERS.map(({ user, userName, initialFollow }) => (
