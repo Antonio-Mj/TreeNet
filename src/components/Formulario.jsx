@@ -30,17 +30,19 @@ export function Formulario({ setUser }) {
                         
                     </div>
                     <form className="formulario" onSubmit={handleSubmit}>
-                        <input type="email" placeholder="Correo electrónico"
+                        <input type="email" placeholder="Email  "
                             value={nombre}
                             onChange={e => setNombre(e.target.value)}
                         />
-                        <input type="password" placeholder="Contraseña"
+                        <input type="password" placeholder="Password"
                             value={contraseña}
                             onChange={e => setContraseña(e.target.value)}
                         />
-                        <button>Iniciar sesión</button>
+                        <button>Login</button>
+                        <p><a href="/signup">If you don't have an account, create one</a></p>
                     </form>
-                    {error && <p className="validation-camps">Todos los campos son obligatorios</p>}
+                    {error && <p className="validation-camps">All fields are required</p>}
+                   
                 </div>
             </section>
             <Imagen />

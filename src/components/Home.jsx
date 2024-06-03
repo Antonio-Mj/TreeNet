@@ -3,6 +3,7 @@ import { FollowCard } from "./FollowCard";
 import Navbar from "./Navbar"; 
 import "./../index.css"
 import Search from './Search'; 
+
 import { useNavigate } from "react-router-dom";
 
 export function Home({ user, setUser }) {
@@ -23,10 +24,11 @@ export function Home({ user, setUser }) {
       initialFollow: true
     }
   ];
-  const navigate= useNavigate();
+
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUser([]);
+    setUser(null);
     navigate("/");
   };
 
@@ -42,16 +44,19 @@ export function Home({ user, setUser }) {
         <div className='home-row-right'>
           <Search />
         <section className="container-followingcard">
+      <Navbar />
+      <div className="home-display">
+        <div className="home-row-left">
+          <section className="container-followingcard">
             {USERS.map(({ user, userName, initialFollow }) => (
-            <FollowCard 
+              <FollowCard 
                 user={user} 
                 userName={userName} 
                 initialFollow={initialFollow} 
                 key={userName} 
-            />
+              />
             ))}
-        </section>
-        </div>
+          </section>
         </div>
     </>
   );
