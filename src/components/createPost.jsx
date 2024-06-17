@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './createpost.css';
 
-const Createpost = () => {
+const Createpost = ({ setUser }) => {
   const [isOption, setIsOption] = useState(false);
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
@@ -26,9 +26,6 @@ const Createpost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const id = localStorage.getItem('coockieFill'); // Asegúrate de que 'coockieFill' sea correcto
-    console.log("Contenido:", content);
-    console.log("ID:", id);
-    console.log("Imagen:", image);
 
     const date = new Date();
     const year = date.getFullYear();
@@ -62,6 +59,7 @@ const Createpost = () => {
       const result = await response.json();
       if (result.success) {
         console.log("Post creado exitosamente:", result);
+        setIsOption(false); // Cierra el modal después de publicar
       } else {
         console.log("Error al crear post:", result.message);
       }
@@ -70,18 +68,12 @@ const Createpost = () => {
       alert("Hubo un error al conectar con el servidor");
     }
   };
-  
-  
-  
-  
-  
 
   return (
     <div>
-    <button className="btn-createpost" onClick={toggleOption}>
-      {isOption ? "Cancelar" : "Crear una publicación"}
-    </button>
-  
+      <button className="btn-createpost" onClick={toggleOption}>
+        {isOption ? "Cancelar" : "Crear una publicación"}
+      </button>
 
       <Modal
         isOpen={isOption}
