@@ -8,9 +8,10 @@ import Search from './Search.jsx';
 
 export function Home({ username, setUser }) {
   const coockie = localStorage.getItem('coockieFill');
-  if (coockie == [] || coockie === "" || !coockie) {
-    return <Navigate to="/sign-in" />
+  if (!coockie || coockie === "") {
+    return <Navigate to="/sign-in" />;
   }
+
   const USERS = [
     {
       user: 'Valorant',
@@ -31,35 +32,25 @@ export function Home({ username, setUser }) {
 
   return (
     <>
-        <Navbar setUser={setUser} /> 
-        <div className="home-display">
-          <div className="home-row-left">
-            <Search />
-          </div>
-          <div className='home-row-right'>
-            <Createpost />
-            <section className="container-followingcard">
-              {USERS.map(({ user, userName, initialFollow }) => (
-                <FollowCard 
-                  user={user} 
-                  userName={userName} 
-                  initialFollow={initialFollow} 
-                  key={userName} 
-                />
-              ))}
-            </section>
-            <section className="container-followingcard">
-              {USERS.map(({ user, userName, initialFollow }) => (
-                <FollowCard 
-                  user={user} 
-                  userName={userName} 
-                  initialFollow={initialFollow} 
-                  key={userName} 
-                />
-              ))}
-            </section>
-          </div>
+      <Navbar setUser={setUser} /> 
+      <div className="home-display">
+        <div className="home-row-left">
+          <Search />
         </div>
+        <div className='home-row-right'>
+          <Createpost />
+          <section className="container-followingcard">
+            {USERS.map(({ user, userName, initialFollow }) => (
+              <FollowCard 
+                user={user} 
+                userName={userName} 
+                initialFollow={initialFollow} 
+                key={userName} 
+              />
+            ))}
+          </section>
+        </div>
+      </div>
     </>
   );
 }
