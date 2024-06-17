@@ -1,0 +1,46 @@
+.li-pots{
+    display: grid;
+    padding: 10px;
+    gap: 30px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.datepost{
+    display: flex;
+    justify-content: end;
+    font-size: 10px;
+    color: gray;
+}
+.li-pots .postText{
+    display: flex;
+    font-size: 20px;
+    justify-content: start;
+}
+.buttonspost{
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+.buttonspost span{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    margin: 0 auto;
+}
+svg{
+    margin:0 auto;
+    margin-right: 10px;
+}
+.nameAndPost{
+    text-align: start;
+    display: grid;
+    justify-content: start;
+}
+.nameAndPost .namepost{
+    font-size: 10px;
+} 
+
+.btnitem{
+    width: 80px;
+}
